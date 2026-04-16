@@ -1,0 +1,76 @@
+<!-- Premium Footer -->
+<footer class="bg-dark text-white pt-5 mt-auto border-top border-secondary">
+  <div class="container py-4">
+    <div class="row gy-4">
+      
+      <!-- Brand & About Column -->
+      <div class="col-lg-4 col-md-6 pe-lg-5">
+        <h4 class="fw-bold mb-3 d-flex align-items-center text-primary">
+          <i class="bi bi-box-seam me-2"></i> Premium Store
+        </h4>
+        <p class="text-secondary mb-4" style="line-height: 1.8;">
+          Discover a curated selection of top-tier technology and gadgets. We deliver premium quality directly to your doorstep with an unmatched shopping experience.
+        </p>
+        <div class="d-flex gap-3">
+          <a href="#" class="btn btn-outline-secondary rounded-circle px-2 py-1"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="btn btn-outline-secondary rounded-circle px-2 py-1"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="btn btn-outline-secondary rounded-circle px-2 py-1"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="btn btn-outline-secondary rounded-circle px-2 py-1"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links Column -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <h5 class="fw-semibold mb-3 text-light">Quick Links</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+          <li><a routerLink="/" class="text-secondary text-decoration-none custom-link">Home</a></li>
+          <li><a routerLink="/store" class="text-secondary text-decoration-none custom-link">Shop Collection</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none custom-link">About Us</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none custom-link">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info Column -->
+      <div class="col-lg-3 col-md-3 col-6">
+        <h5 class="fw-semibold mb-3 text-light">Contact Us</h5>
+        <ul class="list-unstyled d-flex flex-column gap-3 mb-0 text-secondary">
+          <li class="d-flex"><i class="bi bi-geo-alt-fill text-primary me-2 mt-1"></i> <span>123 Tech Avenue, Cairo, Egypt</span></li>
+          <li class="d-flex"><i class="bi bi-telephone-fill text-primary me-2 mt-1"></i> <span>+20 123 456 7890</span></li>
+          <li class="d-flex"><i class="bi bi-envelope-fill text-primary me-2 mt-1"></i> <span>support@premiumstore.com</span></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="col-lg-3 col-md-12">
+        <h5 class="fw-semibold mb-3 text-light">Newsletter</h5>
+        <p class="text-secondary mb-3">Subscribe to receive updates, access to exclusive deals, and more.</p>
+        <form class="d-flex gap-2">
+          <input type="email" class="form-control bg-dark border-secondary text-light flex-grow-1" placeholder="Enter email address" required>
+          <button class="btn btn-primary px-3" type="button"><i class="bi bi-send"></i></button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Copyright Strip -->
+  <div class="py-3 mt-4 text-center" style="background-color: rgba(0,0,0,0.2);">
+    <div class="container">
+      <small class="text-secondary text-opacity-75">
+        &copy; {{ currentYear }} Premium Store App. All rights reserved. <br/>
+        Designed entirely to showcase advanced Angular UI/UX and RxJS integration.
+      </small>
+    </div>
+  </div>
+</footer>
+
+<style>
+.custom-link {
+  transition: all 0.3s ease;
+}
+.custom-link:hover {
+  text-decoration: underline !important;
+  color: var(--bs-primary) !important;
+  margin-left: 5px;
+}
+</style>

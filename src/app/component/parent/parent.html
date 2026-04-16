@@ -1,0 +1,79 @@
+<div class="container py-4">
+
+    <!-- Header Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h2 class="fw-bold mb-1">Our Collection</h2>
+            <p class="text-muted mb-0">Find the perfect products for your daily needs.</p>
+        </div>
+        <div class="col-md-6">
+            <div class="premium-card p-2 d-flex align-items-center">
+                <i class="bi bi-search text-muted ms-3 me-2"></i>
+                <input type="number" class="form-control border-0 shadow-none bg-transparent" placeholder="Enter Max Price to filter..." [(ngModel)]="searchPrice">
+            </div>
+        </div>
+    </div>
+
+    <!-- Products List inside ChildComponent -->
+    <app-child [searchPrice]="searchPrice"></app-child>
+
+    <!-- Shopping Cart Section -->
+    <div id="cart" class="row mt-5" *ngIf="(cart$ | async) as cartItems">
+        <div class="col-12" *ngIf="cartItems.length > 0">
+            <h3 class="fw-bold mb-4">Your Shopping Cart</h3>
+        </div>
+        
+        <div class="col-lg-8 mb-4" *ngIf="cartItems.length > 0">
+            <div class="premium-card p-4 h-100">
+                <div class="table-responsive">
+                    <table class="table premium-table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-end">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cartItems">
+                                <td class="fw-medium py-3"><i class="bi bi-box-seam me-2 text-primary"></i> {{item.name}}</td>
+                                <td class="py-3 text-muted">{{item.price | currency:'USD'}}</td>
+                                <td class="py-3 text-center">
+                                    <span class="badge bg-light text-dark px-3 py-2 border rounded-pill">{{item.qty}}</span>
+                                </td>
+                                <td class="py-3 text-end fw-bold text-dark">{{item.total | currency:'USD'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4" *ngIf="cartItems.length > 0">
+            <div class="premium-card p-4 bg-primary text-white h-100 d-flex flex-column justify-content-center">
+                <h4 class="mb-4 opacity-75">Order Summary</h4>
+                <div class="d-flex justify-content-between align-items-end mb-4">
+                    <span class="fs-5">Total Amount</span>
+                    <h2 class="mb-0 fw-bolder">{{(total$ | async) | currency:'USD'}}</h2>
+                </div>
+                <button class="btn btn-light btn-lg rounded-pill fw-bold mt-auto pb-2 w-100 text-primary" (click)="checkout()">
+                    Proceed to Checkout <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Empty Cart State -->
+        <div class="col-12 text-center py-5" *ngIf="cartItems.length === 0">
+            <div class="premium-card p-5 mx-auto" style="max-width: 500px;">
+                <i class="bi bi-cart-x display-1 text-muted mb-4 opacity-50 d-block"></i>
+                <h3 class="fw-bold">Your cart is empty</h3>
+                <p class="text-muted mb-4">Looks like you haven't added anything to your cart yet. Browse our top categories to discover amazing items!</p>
+                <button class="btn btn-premium px-5 py-2" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    Start Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

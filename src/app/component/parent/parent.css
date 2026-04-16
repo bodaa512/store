@@ -1,0 +1,16 @@
+.filter-section {
+    transition: all 0.3s ease-in-out;
+    border-left: 5px solid #0d6efd !important;
+
+}
+
+.filter-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    margin: 0;
+
+}

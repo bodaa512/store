@@ -1,0 +1,79 @@
+.letter-spacing {
+    letter-spacing: 2px;
+}
+
+.logo-wrapper {
+    width: 60px;
+    height: 60px;
+    background: #0d6efd;
+    color: white;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discount-pill {
+    background: #fff5f5;
+    color: #e03131;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #e03131;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.product-card {
+    background: #fff;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.transition-img {
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .transition-img {
+    transform: scale(1.08);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.logo-circle {
+    width: 65px;
+    height: 65px;
+    background: #0d6efd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}

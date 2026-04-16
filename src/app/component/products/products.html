@@ -1,0 +1,82 @@
+<div class="container py-5">
+    <header class="text-center mb-5">
+        @if (!isPurchased) {
+        <div class="brand-section animate__animated animate__fadeIn">
+            <div class="logo-circle shadow-sm mb-3 mx-auto">
+                <span class="fs-2 fw-bold text-white">S</span>
+            </div>
+            <h1 class="display-5 fw-bold text-dark">MY <span class="text-primary">STORE</span></h1>
+            <p class="text-muted small">Best Products • High Quality</p>
+        </div>
+        } @else {
+        <div class="alert alert-success py-4 shadow-sm text-center border-0">
+            <h3 class="fw-bold">Order Placed Successfully!</h3>
+            <p>Thank you for shopping with us, {{ ClientName }}.</p>
+            <button class="btn btn-outline-success btn-sm mt-2 rounded-pill" (click)="togglePurchase()">Shop
+                Again</button>
+        </div>
+        }
+    </header>
+
+    <div class="row g-3 mb-5 align-items-center bg-white p-3 rounded-4 shadow-sm mx-0 border">
+        <div class="col-md-6">
+            @if (discount !== 'No discount') {
+            <span class="badge rounded-pill bg-danger px-3 py-2 fs-6 shadow-sm">
+                Special Offer: {{ discount }} OFF
+            </span>
+            }
+        </div>
+        <div class="col-md-6">
+            <select class="form-select border-0 bg-light rounded-3 shadow-none" [(ngModel)]="selectedCatID"
+                (change)="filterByCategory()">
+                <option value="0">Show All Collections</option>
+                <option value="1">Apparel (Clothes)</option>
+                <option value="2">Footwear (Shoes)</option>
+                <option value="3">Modern Accessories</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+        @for (item of filteredProducts; track item.id) {
+        <div class="col">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden product-card"
+                [style.border-top]="item.quantity === 1 ? '5px solid #ffc107' : 'none'">
+
+                <div class="image-area d-flex align-items-center justify-content-center bg-light"
+                    style="height: 230px;">
+                    @if (item.quantity > 0) {
+                    <img [src]="item.imgURL" class="img-fluid h-100 w-100 object-fit-cover shadow-sm" [alt]="item.name">
+                    } @else {
+                    <div class="text-center p-3 animate__animated animate__fadeIn">
+                        <h5 class="text-secondary fw-bold mb-1">{{ item.name }}</h5>
+                        <span class="text-danger small fw-bold text-uppercase border border-danger px-2 rounded">Sold
+                            Out</span>
+                    </div>
+                    }
+                </div>
+
+                <div class="card-body p-4 text-center">
+                    <h6 class="fw-bold mb-2">{{ item.name }}</h6>
+                    <h5 class="text-primary fw-bold mb-3">{{ item.price | currency }}</h5>
+
+                    <div class="mb-3">
+                        @switch (item.quantity) {
+                        @case (0) { <small class="text-muted">Out of stock</small> }
+                        @case (1) { <small class="text-warning fw-bold">⚠️ Last piece!</small> }
+                        @case (2) { <small class="text-info">Only 2 left</small> }
+                        @default { <small class="text-success">Available: {{item.quantity}}</small> }
+                        }
+                    </div>
+
+                    <button class="btn btn-dark w-100 py-2 rounded-3 shadow-sm buy-btn" (click)="buyItem(item)"
+                        [disabled]="item.quantity === 0">
+                        {{ item.quantity > 0 ? 'Add to Cart' : 'Unavailable' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
